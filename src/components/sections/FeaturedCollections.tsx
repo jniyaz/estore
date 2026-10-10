@@ -1,54 +1,53 @@
-// src/components/sections/FeaturedCollections.tsx
-
-import { Container, Grid, Card, Link } from "@/components/primitives";
-import { Collection } from "@/lib/sampleData";
+import Image from 'next/image';
+import { Link } from '@/components/primitives';
+import { Collection } from '@/lib/sampleData';
 
 interface FeaturedCollectionsProps {
   collections: Collection[];
 }
 
-export function FeaturedCollections({
-  collections,
-}: FeaturedCollectionsProps) {
+export function FeaturedCollections({ collections }: FeaturedCollectionsProps) {
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Featured Collections
-          </h2>
-          <p className="text-secondary text-lg">
-            Discover our curated selection
-          </p>
-        </div>
+    <section className="w-full bg-white section-padding-y section-padding-x">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Title */}
+        <h2 className="text-h2 text-neutral-900 font-bold mb-12">
+          Featured Collections
+        </h2>
 
-        <Grid cols={3}>
+        {/* Collections Grid: 1 mobile, 2 tablet, 3 desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-8">
           {collections.map((collection) => (
-            <Link key={collection.id} href={collection.href}>
-              <Card clickable className="overflow-hidden">
-                {/* Image */}
-                <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={collection.image}
-                    alt={collection.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
+            <div
+              key={collection.id}
+              className="group bg-neutral-50 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            >
+              {/* Collection Image */}
+              <div className="relative h-80 w-full bg-neutral-200 overflow-hidden">
+                <Image
+                  src={collection.image}
+                  alt={collection.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
 
-                {/* Text overlay */}
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold mb-2">
-                    {collection.name}
-                  </h3>
-                  <p className="text-secondary text-sm">
-                    {collection.description}
-                  </p>
-                </div>
-              </Card>
-            </Link>
+              {/* Collection Info */}
+              <div className="p-6">
+                <h3 className="text-h3 text-neutral-900 font-semibold mb-2">
+                  {collection.name}
+                </h3>
+                <p className="text-neutral-600 text-sm mb-6">
+                  {collection.description}
+                </p>
+                <Link href={collection.href} variant="accent">
+                  Explore →
+                </Link>
+              </div>
+            </div>
           ))}
-        </Grid>
-      </Container>
+        </div>
+      </div>
     </section>
   );
 }
