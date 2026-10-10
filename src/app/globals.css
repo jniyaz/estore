@@ -1,0 +1,596 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   DESIGN SYSTEM - LUXURY ECOMMERCE
+
+   A refined, minimalist design system inspired by premium brands.
+   Built on CSS custom properties for flexibility and consistency.
+   ============================================================================ */
+
+/* =========================
+   1. COLOR TOKENS
+   ========================= */
+
+:root {
+  /* Neutral Palette - Pure grayscale for luxury minimalism */
+  --color-neutral-50: 248 248 248;
+  --color-neutral-100: 244 244 245;
+  --color-neutral-200: 228 228 231;
+  --color-neutral-300: 212 212 216;
+  --color-neutral-400: 161 161 170;
+  --color-neutral-500: 113 113 122;
+  --color-neutral-600: 82 82 91;
+  --color-neutral-700: 63 63 70;
+  --color-neutral-800: 39 39 42;
+  --color-neutral-900: 24 24 27;
+  --color-neutral-950: 9 9 11;
+
+  /* Accent Palette - Refined gold/bronze for premium feel */
+  --color-accent-50: 254 250 242;
+  --color-accent-100: 252 244 227;
+  --color-accent-200: 247 231 197;
+  --color-accent-300: 239 213 154;
+  --color-accent-400: 230 182 92;
+  --color-accent-500: 217 152 52;
+  --color-accent-600: 180 113 31;
+  --color-accent-700: 146 89 22;
+  --color-accent-900: 78 47 12;
+
+  /* Surface Colors */
+  --color-surface-bg: 255 255 255;
+  --color-surface-elevated: 248 248 248;
+  --color-surface-border: 228 228 231;
+
+  /* Semantic Colors */
+  --color-success: 34 197 94;
+  --color-error: 239 68 68;
+  --color-warning: 245 158 11;
+
+  /* Text Colors */
+  --color-text-primary: 9 9 11;
+  --color-text-secondary: 113 113 122;
+  --color-text-tertiary: 161 161 170;
+  --color-text-inverse: 255 255 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-neutral-50: 24 24 27;
+    --color-neutral-100: 39 39 42;
+    --color-neutral-200: 63 63 70;
+    --color-neutral-300: 82 82 91;
+    --color-neutral-400: 113 113 122;
+    --color-neutral-500: 161 161 170;
+    --color-neutral-600: 212 212 216;
+    --color-neutral-700: 228 228 231;
+    --color-neutral-800: 244 244 245;
+    --color-neutral-900: 248 248 248;
+    --color-neutral-950: 255 255 255;
+
+    --color-accent-50: 78 47 12;
+    --color-accent-100: 146 89 22;
+    --color-accent-200: 180 113 31;
+    --color-accent-300: 217 152 52;
+    --color-accent-400: 230 182 92;
+    --color-accent-500: 239 213 154;
+    --color-accent-600: 247 231 197;
+    --color-accent-700: 252 244 227;
+    --color-accent-900: 254 250 242;
+
+    --color-surface-bg: 9 9 11;
+    --color-surface-elevated: 24 24 27;
+    --color-surface-border: 39 39 42;
+
+    --color-text-primary: 248 248 248;
+    --color-text-secondary: 161 161 170;
+    --color-text-tertiary: 113 113 122;
+  }
+}
+
+/* =========================
+   2. TYPOGRAPHY SCALE
+   ========================= */
+
+:root {
+  /* Font families */
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-serif: ui-serif, serif;
+
+  /* Font sizes with line heights */
+  --font-size-xs: 0.75rem;
+  --line-height-xs: 1rem;
+
+  --font-size-sm: 0.875rem;
+  --line-height-sm: 1.25rem;
+
+  --font-size-base: 1rem;
+  --line-height-base: 1.5rem;
+
+  --font-size-lg: 1.125rem;
+  --line-height-lg: 1.75rem;
+
+  --font-size-xl: 1.25rem;
+  --line-height-xl: 1.75rem;
+
+  --font-size-2xl: 1.5rem;
+  --line-height-2xl: 2rem;
+
+  --font-size-3xl: 1.875rem;
+  --line-height-3xl: 2.25rem;
+
+  --font-size-4xl: 2.25rem;
+  --line-height-4xl: 2.5rem;
+
+  /* Letter spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.05em;
+}
+
+* {
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: rgb(var(--color-surface-bg));
+  color: rgb(var(--color-text-primary));
+  line-height: var(--line-height-base);
+  font-size: var(--font-size-base);
+}
+
+/* Heading scale - bold, premium typography */
+h1 {
+  font-size: var(--font-size-4xl);
+  line-height: var(--line-height-4xl);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-tight);
+  margin: 0;
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-3xl);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-tight);
+  margin: 0;
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-2xl);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-normal);
+  margin: 0;
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-xl);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-normal);
+  margin: 0;
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-lg);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-normal);
+  margin: 0;
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-normal);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  color: rgb(var(--color-text-primary));
+}
+
+small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  color: rgb(var(--color-text-secondary));
+}
+
+/* =========================
+   3. SPACING SCALE (8px base)
+   ========================= */
+
+:root {
+  --spacing-0-5: 0.25rem;
+  --spacing-1: 0.5rem;
+  --spacing-1-5: 0.75rem;
+  --spacing-2: 1rem;
+  --spacing-2-5: 1.25rem;
+  --spacing-3: 1.5rem;
+  --spacing-3-5: 1.75rem;
+  --spacing-4: 2rem;
+  --spacing-5: 2.5rem;
+  --spacing-6: 3rem;
+  --spacing-7: 3.5rem;
+  --spacing-8: 4rem;
+  --spacing-9: 4.5rem;
+  --spacing-10: 5rem;
+  --spacing-12: 6rem;
+  --spacing-14: 7rem;
+  --spacing-16: 8rem;
+  --spacing-20: 10rem;
+  --spacing-24: 12rem;
+  --spacing-28: 14rem;
+  --spacing-32: 16rem;
+  --spacing-36: 18rem;
+  --spacing-40: 20rem;
+  --spacing-44: 22rem;
+  --spacing-48: 24rem;
+  --spacing-52: 26rem;
+  --spacing-56: 28rem;
+  --spacing-60: 30rem;
+  --spacing-64: 32rem;
+  --spacing-72: 36rem;
+  --spacing-80: 40rem;
+  --spacing-96: 48rem;
+}
+
+/* =========================
+   4. BORDER RADIUS
+   ========================= */
+
+:root {
+  --radius-sm: 0.25rem;
+  --radius-base: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+}
+
+/* =========================
+   5. TRANSITIONS
+   ========================= */
+
+:root {
+  --transition-fast: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================
+   6. CONTAINERS & GRIDS
+   ========================= */
+
+:root {
+  --container-max-width: 1280px;
+  --container-content-width: 1024px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: var(--spacing-3);
+    padding-right: var(--spacing-3);
+  }
+}
+
+/* Responsive container */
+.container-content {
+  width: 100%;
+  max-width: var(--container-content-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+/* Grid system - 12 column */
+.grid {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+@media (max-width: 768px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-cols-12 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    gap: var(--spacing-3);
+  }
+
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4,
+  .grid-cols-12 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   7. BUTTONS
+   ========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2-5) var(--spacing-4);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: var(--transition-base);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: rgb(var(--color-text-primary));
+  color: rgb(var(--color-surface-bg));
+  border-color: rgb(var(--color-text-primary));
+}
+
+.btn-primary:hover {
+  background-color: rgb(var(--color-neutral-800));
+  border-color: rgb(var(--color-neutral-800));
+}
+
+.btn-primary:active {
+  opacity: 0.9;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Secondary button */
+.btn-secondary {
+  background-color: rgb(var(--color-surface-elevated));
+  color: rgb(var(--color-text-primary));
+  border-color: rgb(var(--color-surface-border));
+}
+
+.btn-secondary:hover {
+  background-color: rgb(var(--color-neutral-100));
+  border-color: rgb(var(--color-neutral-300));
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ghost button */
+.btn-ghost {
+  background-color: transparent;
+  color: rgb(var(--color-text-primary));
+  border-color: rgb(var(--color-surface-border));
+}
+
+.btn-ghost:hover {
+  background-color: rgb(var(--color-surface-elevated));
+  border-color: rgb(var(--color-neutral-300));
+}
+
+.btn-ghost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Accent button */
+.btn-accent {
+  background-color: rgb(var(--color-accent-600));
+  color: rgb(var(--color-surface-bg));
+  border-color: rgb(var(--color-accent-600));
+}
+
+.btn-accent:hover {
+  background-color: rgb(var(--color-accent-700));
+  border-color: rgb(var(--color-accent-700));
+}
+
+.btn-accent:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Button sizes */
+.btn-sm {
+  padding: var(--spacing-1-5) var(--spacing-3);
+  font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+  padding: var(--spacing-3) var(--spacing-6);
+  font-size: var(--font-size-lg);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* =========================
+   8. LINKS
+   ========================= */
+
+a {
+  color: rgb(var(--color-accent-600));
+  text-decoration: none;
+  transition: var(--transition-base);
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  color: rgb(var(--color-accent-700));
+  border-bottom-color: rgb(var(--color-accent-600));
+}
+
+a:visited {
+  color: rgb(var(--color-accent-700));
+}
+
+/* Subtle link - no color change */
+.link-subtle {
+  color: inherit;
+  border-bottom: 1px solid rgb(var(--color-surface-border));
+}
+
+.link-subtle:hover {
+  border-bottom-color: rgb(var(--color-text-primary));
+}
+
+/* =========================
+   9. BORDERS & DIVIDERS
+   ========================= */
+
+.border-subtle {
+  border-color: rgb(var(--color-surface-border));
+}
+
+.border-base {
+  border-color: rgb(var(--color-neutral-300));
+}
+
+/* Dividers */
+hr {
+  border: none;
+  border-top: 1px solid rgb(var(--color-surface-border));
+  margin: var(--spacing-4) 0;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgb(var(--color-surface-border));
+  margin: var(--spacing-4) 0;
+}
+
+/* =========================
+   10. UTILITIES
+   ========================= */
+
+/* Text utilities */
+.text-primary {
+  color: rgb(var(--color-text-primary));
+}
+
+.text-secondary {
+  color: rgb(var(--color-text-secondary));
+}
+
+.text-tertiary {
+  color: rgb(var(--color-text-tertiary));
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Visibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-accent-600));
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgb(var(--color-accent-600));
+  outline-offset: 2px;
+}
+
+/* =========================
+   11. RESPONSIVE UTILITIES
+   ========================= */
+
+/* Show/hide on breakpoints */
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+/* =========================
+   12. BASE ELEMENTS
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: rgb(var(--color-surface-bg));
+  color: rgb(var(--color-text-primary));
+}
+
+::selection {
+  background-color: rgb(var(--color-accent-600));
+  color: rgb(var(--color-surface-bg));
+}
