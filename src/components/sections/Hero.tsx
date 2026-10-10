@@ -1,5 +1,7 @@
 // src/components/sections/Hero.tsx
 
+"use client";
+
 import { Container, Button } from "@/components/primitives";
 
 interface HeroProps {

@@ -1,5 +1,7 @@
 // src/components/sections/NewArrivals.tsx
 
+"use client";
+
 import { Container, Grid, Card, Button } from "@/components/primitives";
 import { Product } from "@/lib/sampleData";
 
