@@ -24,14 +24,15 @@ const config: Config = {
         },
         // Accent palette - refined gold/bronze
         accent: {
-          50: "rgb(var(--color-accent-50) / <alpha-value>)",
-          100: "rgb(var(--color-accent-100) / <alpha-value>)",
+          DEFAULT: "#ff6b35",
+          50: "#fff5ed",
+          100: "#ffe8d9",
           200: "rgb(var(--color-accent-200) / <alpha-value>)",
           300: "rgb(var(--color-accent-300) / <alpha-value>)",
           400: "rgb(var(--color-accent-400) / <alpha-value>)",
           500: "rgb(var(--color-accent-500) / <alpha-value>)",
-          600: "rgb(var(--color-accent-600) / <alpha-value>)",
-          700: "rgb(var(--color-accent-700) / <alpha-value>)",
+          600: "#e55a25",
+          700: "#d94d1a",
           900: "rgb(var(--color-accent-900) / <alpha-value>)",
         },
         // Surface colors
@@ -47,8 +48,13 @@ const config: Config = {
       },
       fontSize: {
         // Typography scale
-        "xs": ["var(--font-size-xs)", { lineHeight: "var(--line-height-xs)" }],
-        "sm": ["var(--font-size-sm)", { lineHeight: "var(--line-height-sm)" }],
+        "h1": ["72px", { lineHeight: "1.1", fontWeight: "700" }],
+        "h2": ["48px", { lineHeight: "1.2", fontWeight: "700" }],
+        "h3": ["20px", { lineHeight: "1.3", fontWeight: "600" }],
+        "h4": ["16px", { lineHeight: "1.4", fontWeight: "600" }],
+        "body": ["16px", { lineHeight: "1.6" }],
+        "xs": ["13px", { lineHeight: "1.5" }],
+        "sm": ["14px", { lineHeight: "1.5" }],
         "base": ["var(--font-size-base)", { lineHeight: "var(--line-height-base)" }],
         "lg": ["var(--font-size-lg)", { lineHeight: "var(--line-height-lg)" }],
         "xl": ["var(--font-size-xl)", { lineHeight: "var(--line-height-xl)" }],
@@ -102,6 +108,11 @@ const config: Config = {
         72: "var(--spacing-72)",
         80: "var(--spacing-80)",
         96: "var(--spacing-96)",
+        "section-y": "48px",
+        "section-y-lg": "64px",
+        "section-x": "40px",
+        "gap-collections": "32px",
+        "gap-products": "24px",
       },
       borderRadius: {
         none: "0",
