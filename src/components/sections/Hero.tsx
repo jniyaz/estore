@@ -1,56 +1,52 @@
-// src/components/sections/Hero.tsx
+'use client';
 
-"use client";
-
-import { Container, Button } from "@/components/primitives";
+import { Button } from '@/components/primitives';
+import Image from 'next/image';
 
 interface HeroProps {
   image: string;
   headline: string;
   subheading: string;
   ctaText: string;
-  ctaHref?: string;
+  ctaHref: string;
 }
 
-export function Hero({
-  image,
-  headline,
-  subheading,
-  ctaText,
-  ctaHref = "/shop",
-}: HeroProps) {
+export function Hero({ image, headline, subheading, ctaText, ctaHref }: HeroProps) {
   return (
-    <div className="relative w-full h-96 md:h-[600px] overflow-hidden">
-      {/* Background image */}
-      <img
+    <section className="relative w-full h-[70vh] md:h-[600px] lg:h-[70vh] overflow-hidden bg-neutral-900">
+      {/* Background Image */}
+      <Image
         src={image}
         alt={headline}
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        className="object-cover object-center"
+        priority
       />
 
-      {/* Dark overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <Container>
-          <div className="text-center text-white max-w-2xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              {headline}
-            </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-100">
-              {subheading}
-            </p>
+      <div className="relative h-full flex flex-col items-center justify-center px-6 md:px-12">
+        <div className="max-w-2xl text-center space-y-6">
+          <h1 className="text-h1 text-white font-bold">
+            {headline}
+          </h1>
+          <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
+            {subheading}
+          </p>
+          <div className="pt-4">
             <Button
               variant="accent"
-              size="lg"
-              onClick={() => (window.location.href = ctaHref)}
+              size="xl"
+              className="text-white"
+              onClick={() => window.location.href = ctaHref}
             >
               {ctaText}
             </Button>
           </div>
-        </Container>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
