@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import Header from '@/components/Header';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Ecommerce Store",
-  description: "Next.js ecommerce application",
+  title: 'Ecommerce Store',
+  description: 'Next.js ecommerce application',
 };
 
 export default function RootLayout({
@@ -13,7 +14,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {/* Sticky Header */}
+        <Header />
+
+        {/* Main Content - offset by header height */}
+        <div className="pt-16 md:pt-16">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
