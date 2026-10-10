@@ -3,21 +3,32 @@ import { ReactNode } from "react";
 
 interface LinkProps {
   href: string;
-  children: ReactNode;
-  variant?: "default" | "subtle";
+  variant?: "default" | "subtle" | "accent";
   className?: string;
+  children: ReactNode;
 }
+
+const variantClasses = {
+  default: "text-neutral-900 hover:underline",
+  subtle: "text-neutral-600 hover:text-neutral-900",
+  accent: "text-accent font-semibold hover:underline hover:text-accent-600",
+};
 
 export function Link({
   href,
-  children,
   variant = "default",
   className = "",
+  children,
 }: LinkProps) {
-  const variantClass = variant === "subtle" ? "link-subtle" : "";
-
   return (
-    <NextLink href={href} className={`${variantClass} ${className}`}>
+    <NextLink
+      href={href}
+      className={`
+        ${variantClasses[variant]}
+        transition-colors duration-200
+        ${className}
+      `}
+    >
       {children}
     </NextLink>
   );
