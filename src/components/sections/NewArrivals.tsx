@@ -1,9 +1,8 @@
-// src/components/sections/NewArrivals.tsx
+'use client';
 
-"use client";
-
-import { Container, Grid, Card, Button } from "@/components/primitives";
-import { Product } from "@/lib/sampleData";
+import Image from 'next/image';
+import { Button } from '@/components/primitives';
+import { Product } from '@/lib/sampleData';
 
 interface NewArrivalsProps {
   products: Product[];
@@ -11,49 +10,51 @@ interface NewArrivalsProps {
 
 export function NewArrivals({ products }: NewArrivalsProps) {
   return (
-    <section className="py-20 md:py-32 bg-neutral-50">
-      <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            New Arrivals
-          </h2>
-          <p className="text-secondary text-lg">
-            Latest additions to our collection
-          </p>
-        </div>
+    <section className="w-full bg-neutral-50 section-padding-y section-padding-x">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Title */}
+        <h2 className="text-h2 text-neutral-900 font-bold mb-12">
+          New Arrivals
+        </h2>
 
-        <Grid cols={4}>
+        {/* Products Grid: 1 mobile, 2 tablet, 4 desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6">
           {products.map((product) => (
-            <Card key={product.id} bordered>
-              {/* Product image */}
-              <div className="mb-4 h-64 overflow-hidden rounded-md">
-                <img
+            <div key={product.id} className="bg-white rounded-lg overflow-hidden">
+              {/* Product Image */}
+              <div className="relative h-80 w-full bg-neutral-200 rounded-lg overflow-hidden mb-4">
+                <Image
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
-              {/* Product info */}
-              <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
-              <p className="text-secondary text-sm mb-4">
-                {product.collection}
-              </p>
-              <p className="text-xl font-bold mb-4">${product.price}</p>
-
-              {/* CTA button */}
-              <Button
-                variant="accent"
-                size="sm"
-                fullWidth
-                onClick={() => (window.location.href = `/products/${product.id}`)}
-              >
-                View Product
-              </Button>
-            </Card>
+              {/* Product Info */}
+              <div className="space-y-3">
+                <h4 className="text-h4 text-neutral-900 font-semibold">
+                  {product.name}
+                </h4>
+                <p className="text-neutral-600 text-xs">
+                  {product.collection}
+                </p>
+                <p className="text-neutral-900 text-xl font-bold">
+                  ${product.price}
+                </p>
+                <Button
+                  variant="accent"
+                  size="md"
+                  fullWidth
+                  className="text-white font-semibold"
+                >
+                  View Product
+                </Button>
+              </div>
+            </div>
           ))}
-        </Grid>
-      </Container>
+        </div>
+      </div>
     </section>
   );
 }
