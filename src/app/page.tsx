@@ -2,11 +2,11 @@
 
 import {
   Hero,
-  FeaturedCollections,
   NewArrivals,
   Newsletter,
   Footer,
 } from "@/components/sections";
+import CollectionsCarousel from "@/components/CollectionsCarousel";
 import { HERO_IMAGE, FEATURED_COLLECTIONS, NEW_ARRIVALS } from "@/lib/sampleData";
 
 export default function Home() {
@@ -21,8 +21,8 @@ export default function Home() {
         ctaHref="/shop"
       />
 
-      {/* Featured Collections */}
-      <FeaturedCollections collections={FEATURED_COLLECTIONS} />
+      {/* Collections Carousel */}
+      <CollectionsCarousel collections={FEATURED_COLLECTIONS} />
 
       {/* New Arrivals */}
       <NewArrivals products={NEW_ARRIVALS} />
